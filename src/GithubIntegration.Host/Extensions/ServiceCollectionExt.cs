@@ -1,11 +1,15 @@
 ﻿using System;
-using System.Net;
+using System.Collections.Generic;
 using System.Net.Http;
+using GithubIntegration.Domain.Abstraction;
 using GithubIntegration.Domain.Abstraction.Agent;
 using GithubIntegration.Domain.Abstraction.Fabric;
+using GithubIntegration.Domain.Entity;
 using GithubIntegration.Host.Configs;
 using GithubIntegration.Host.Constants;
+using GithubIntegration.Host.Services;
 using GithubIntegration.Host.Services.Agents;
+using GithubIntegration.Host.Services.Background;
 using GithubIntegration.Host.Services.Fabrics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,7 +40,14 @@ namespace GithubIntegration.Host.Extensions
             });
         }
 
+        public static IServiceCollection AddBackgroundServices(this IServiceCollection svc) =>
+            svc.AddHostedService<PullUpdatesHostedService>();
+        
+        public static IServiceCollection AddInMemoryStorages(this IServiceCollection svc) =>
+            svc.AddMemoryCache().AddSingleton<IInMemoryCache<IEnumerable<RepositoryEntity>?>, RepositoriesStorage>();
+
         public static IServiceCollection AddConfigs(this IServiceCollection svc, IConfiguration cfg) =>
-            svc.Configure<HttpConfig>(cfg.GetSection(ConfigurationConsts.GithubApiHttpCfg));
+            svc.Configure<HttpConfig>(cfg.GetSection(ConfigurationConsts.GithubApiHttpCfg))
+                .Configure<PullUpdatesConfig>(cfg.GetSection(ConfigurationConsts.GithubApiPullUpdates));
     }
 }

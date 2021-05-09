@@ -44,8 +44,11 @@ namespace GithubIntegration.Host
         {
             services.AddMediatR(typeof(IGithubAgent).Assembly)
                 .AddConfigs(Configuration)
+                .AddInMemoryStorages()
                 .AddFabrics()
-                .AddHttpClients();
+                .AddHttpClients()
+                .Services
+                .AddBackgroundServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

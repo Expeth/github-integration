@@ -28,7 +28,7 @@ namespace GithubIntegration.Host.Controllers
             return domainResp.Match(success => Ok(map(success)),
                 internalError =>
                 {
-                    Logger.Error("Msg: {msg} Exc: {@exc}", internalError.Message, internalError.GetException());
+                    Logger.Error(internalError.GetException(), "{msg}", internalError.Message);
                     return StatusCode(StatusCodes.Status500InternalServerError, internalError);
                 });
         }
