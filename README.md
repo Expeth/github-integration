@@ -12,7 +12,7 @@ What things you need to install the software and how to install them
 
 ```
 1. .Net 5.0 SDK - should be downloaded from the official Microsoft website.
-2. Github OAuth Token - can be generated via Github Settings -> Developer Settings -> 3. Personal access tokens
+2. Github OAuth Token - can be generated via Github Settings -> Developer Settings -> Personal access tokens
 ```
 
 ### Build and run
