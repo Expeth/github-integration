@@ -11,8 +11,8 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-.Net 5.0 SDK - should be downloaded from the official Microsoft website.
-Github OAuth Token - can be generated via Github Settings -> Developer Settings -> Personal access tokens
+1. .Net 5.0 SDK - should be downloaded from the official Microsoft website.
+2. Github OAuth Token - can be generated via Github Settings -> Developer Settings -> 3. Personal access tokens
 ```
 
 ### Build and run
@@ -31,7 +31,6 @@ The project has Docker support, so there are two ways on how to run it locally. 
 dotnet build -c release -o out
 cd out
 dotnet GithubIntegration.Host.dll --Environment Development
-
 ```
 
 And how to build and run it with Docker:
@@ -39,7 +38,6 @@ And how to build and run it with Docker:
 ```
 docker build -t github-integration .
 docker run -d -p 50001:80 github-integration --Environment Development
-
 ```
 
 ## Built With
