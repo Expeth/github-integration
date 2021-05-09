@@ -1,4 +1,4 @@
-# Github Integration MS https://travis-ci.org/Expeth/github-integration.svg?branch=dev
+# Github Integration MS
 [![Build Status](https://travis-ci.org/Expeth/github-integration.svg?branch=dev)](https://travis-ci.org/Expeth/github-integration)
 
 This WebAPI is used for integration with GithubAPI, providing a lightweight endpoint for getting the repositories list. It pulls data from Github every 10 minutes (interval can be configured via appsettings) and returns data from a cache, so the response time is pretty well. The application isn't really useful in real life and was created only for education purposes.
