@@ -23,6 +23,6 @@ namespace GithubIntegration.Host.Controllers
         }
 
         private GetBadgeResponse Map(GetLatestRelease.Response resp) =>
-            new GetBadgeResponse("1", "release", resp.ReleaseEntity?.Name, "blue");
+            new GetBadgeResponse(1, "release", resp.ReleaseEntity?.Name, "blue");
     }
 }
