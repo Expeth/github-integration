@@ -44,4 +44,9 @@ namespace GithubIntegration.Host.Services
     {
         public RepositoriesStorage(IMemoryCache cache) : base(cache) { }
     }
+    
+    internal class LatestReleaseStorage : InMemoryCache<ReleaseEntity?>
+    {
+        public LatestReleaseStorage(IMemoryCache cache) : base(cache) { }
+    }
 }

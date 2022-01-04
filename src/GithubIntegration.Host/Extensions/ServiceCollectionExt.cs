@@ -44,7 +44,8 @@ namespace GithubIntegration.Host.Extensions
             svc.AddHostedService<PullUpdatesHostedService>();
         
         public static IServiceCollection AddInMemoryStorages(this IServiceCollection svc) =>
-            svc.AddMemoryCache().AddSingleton<IInMemoryCache<IEnumerable<RepositoryEntity>?>, RepositoriesStorage>();
+            svc.AddMemoryCache().AddSingleton<IInMemoryCache<IEnumerable<RepositoryEntity>?>, RepositoriesStorage>()
+                .AddMemoryCache().AddSingleton<IInMemoryCache<ReleaseEntity?>, LatestReleaseStorage>();
 
         public static IServiceCollection AddConfigs(this IServiceCollection svc, IConfiguration cfg) =>
             svc.Configure<HttpConfig>(cfg.GetSection(ConfigurationConsts.GithubApiHttpCfg))

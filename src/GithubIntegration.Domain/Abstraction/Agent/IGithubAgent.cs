@@ -7,5 +7,6 @@ namespace GithubIntegration.Domain.Abstraction.Agent
     public interface IGithubAgent
     {
         Task<IEnumerable<RepositoryEntity>?> GetRepositories(string username);
+        Task<ReleaseEntity?> GetLatestRelease(string username, string repo);
     }
 }
